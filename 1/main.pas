@@ -5,13 +5,17 @@ uses sysutils;
 type
   TNumbers = array of Integer;
 
-procedure GenerateRandomNumbers(var data: TNumbers);
+procedure GenerateRandomNumbers(var data: TNumbers; rangeFrom, rangeTo, amount: Integer);
 var
   k: Integer;
 begin
-  SetLength(data, 50);
+  if amount < 0 then amount := 0;
+  SetLength(data, amount);
+  
   for k := Low(data) to High(data) do
-    data[k] := Random(101);
+  begin
+    data[k] := rangeFrom + Random(rangeTo - rangeFrom + 1);
+  end;
 end;
 
 procedure PerformBubbleSort(var data: TNumbers);
@@ -41,7 +45,7 @@ var
 begin
   Randomize;
   
-  GenerateRandomNumbers(numberList);
+  GenerateRandomNumbers(numberList, 0, 100, 50);
   
   WriteLn('raw:');
   for idx := Low(numberList) to High(numberList) do Write(numberList[idx], ' ');
