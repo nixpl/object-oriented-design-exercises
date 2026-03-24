@@ -39,20 +39,60 @@ begin
   end;
 end;
 
+procedure RunUnitTests;
+var
+  testData: TNumbers;
+  idx: Integer;
+  isValid: Boolean;
+begin
+  WriteLn('running tests...');
+
+  GenerateRandomNumbers(testData, 0, 100, 50);
+  if Length(testData) = 50 then WriteLn('t1 (len=50): pass') else WriteLn('t1: fail');
+
+  isValid := True;
+  for idx := Low(testData) to High(testData) do
+    if (testData[idx] < 0) or (testData[idx] > 100) then isValid := False;
+  if isValid then WriteLn('t2 (0-100 range): pass') else WriteLn('t2: fail');
+
+  PerformBubbleSort(testData);
+  isValid := True;
+  for idx := Low(testData) to High(testData) - 1 do
+    if testData[idx] > testData[idx + 1] then isValid := False;
+  if isValid then WriteLn('t3 (sorting logic): pass') else WriteLn('t3: fail');
+
+  GenerateRandomNumbers(testData, -100, -10, 15);
+  PerformBubbleSort(testData);
+  isValid := True;
+  for idx := Low(testData) to High(testData) - 1 do
+    if testData[idx] > testData[idx + 1] then isValid := False;
+  if isValid then WriteLn('t4 (negative values): pass') else WriteLn('t4: fail');
+
+  GenerateRandomNumbers(testData, 0, 50, 0);
+  PerformBubbleSort(testData);
+  if Length(testData) = 0 then WriteLn('t5 (empty array): pass') else WriteLn('t5: fail');
+
+  WriteLn('tests done.');
+  WriteLn;
+end;
+
 var
   numberList: TNumbers;
   idx: Integer;
 begin
   Randomize;
   
+  RunUnitTests;
+
+  WriteLn('main run:');
   GenerateRandomNumbers(numberList, 0, 100, 50);
-  
+
   WriteLn('raw:');
   for idx := Low(numberList) to High(numberList) do Write(numberList[idx], ' ');
   WriteLn; WriteLn;
-  
+
   PerformBubbleSort(numberList);
-  
+
   WriteLn('sorted:');
   for idx := Low(numberList) to High(numberList) do Write(numberList[idx], ' ');
   WriteLn;
