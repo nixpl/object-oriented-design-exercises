@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+{% block title %}Categories List{% endblock %}
+{% block body %}
+    <h1>Categories</h1>
+    <table>
+        <tr><th>ID</th><th>Name</th></tr>
+        {% for category in categories %}
+            <tr><td>{{ category.id }}</td><td>{{ category.name }}</td></tr>
+        {% else %}
+            <tr><td colspan="2">No categories found. Add some via API!</td></tr>
+        {% endfor %}
+    </table>
+{% endblock %}
