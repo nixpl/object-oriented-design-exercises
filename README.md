@@ -14,3 +14,20 @@ Proszę napisać program w Pascalu, który zawiera dwie procedury, jedna generuj
 ✅ 5.0 Skrypt w bashu do uruchamiania aplikacji w Pascalu via docker [Link do commita 5](https://github.com/nixpl/object-oriented-design-exercises/commit/f8ea414)
 
 Kod: [Link do zadania 1](./1)
+
+**Zadanie 2** Wzorce architektury
+Symfony (PHP)
+
+Należy stworzyć aplikację webową na bazie frameworka Symfony na obrazie `kprzystalski/projobj-php:latest`. Baza danych dowolna, sugeruję SQLite.
+
+✅ 3.0 Należy stworzyć jeden model z kontrolerem z produktami, zgodnie z CRUD (JSON) [Link do commita 3.0](https://github.com/nixpl/object-oriented-design-exercises/commit/13e1200)
+
+✅ 3.5 Należy stworzyć skrypty do testów endpointów via curl (JSON) [Link do commita 3.5](https://github.com/nixpl/object-oriented-design-exercises/commit/560dcb6)
+
+✅ 4.0 Należy stworzyć dwa dodatkowe kontrolery wraz z modelami (JSON) [Link do commita 4.0](https://github.com/nixpl/object-oriented-design-exercises/commit/560dcb6)
+
+✅ 4.5 Należy stworzyć widoki do wszystkich kontrolerów [Link do commita 4.5](https://github.com/nixpl/object-oriented-design-exercises/commit/d858c8c)
+
+✅ 5.0 Stworzenie panelu administracyjnego [Link do commita 5.0](https://github.com/nixpl/object-oriented-design-exercises/commit/9952bb3)
+
+Kod: [Link do zadania 2](./2)
