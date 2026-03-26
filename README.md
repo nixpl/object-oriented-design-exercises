@@ -24,7 +24,7 @@ Należy stworzyć aplikację webową na bazie frameworka Symfony na obrazie `kpr
 
 ✅ 3.5 Należy stworzyć skrypty do testów endpointów via curl (JSON) [Link do commita 3.5](https://github.com/nixpl/object-oriented-design-exercises/commit/560dcb6)
 
-✅ 4.0 Należy stworzyć dwa dodatkowe kontrolery wraz z modelami (JSON) [Link do commita 4.0](https://github.com/nixpl/object-oriented-design-exercises/commit/560dcb6)
+✅ 4.0 Należy stworzyć dwa dodatkowe kontrolery wraz z modelami (JSON) [Link do commita 4.0](https://github.com/nixpl/object-oriented-design-exercises/commit/b6f8c49)
 
 ✅ 4.5 Należy stworzyć widoki do wszystkich kontrolerów [Link do commita 4.5](https://github.com/nixpl/object-oriented-design-exercises/commit/d858c8c)
 
