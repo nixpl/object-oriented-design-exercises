@@ -1,12 +1,14 @@
 package pl.uj.task3
 
+import org.springframework.context.annotation.Lazy
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/api")
 class ApiController(
-    private val eagerAuthService: EagerAuthService
+    private val eagerAuthService: EagerAuthService,
+    @Lazy private val lazyAuthService: LazyAuthService
 ) {
 
     @GetMapping("/data")
@@ -15,9 +17,16 @@ class ApiController(
     }
 
     @PostMapping("/login")
-    fun login(@RequestBody request: AuthRequest): ResponseEntity<Map<String, String>> {
-        val isAuthorized = eagerAuthService.authorize(request.username, request.password)
-        
+    fun login(
+        @RequestBody request: AuthRequest,
+        @RequestParam(defaultValue = "eager") type: String
+    ): ResponseEntity<Map<String, String>> {
+        val isAuthorized = if (type == "lazy") {
+            lazyAuthService.authorize(request.username, request.password)
+        } else {
+            eagerAuthService.authorize(request.username, request.password)
+        }
+
         return if (isAuthorized) {
             ResponseEntity.ok(mapOf("status" to "SUCCESS", "message" to "Logged in successfully!"))
         } else {
