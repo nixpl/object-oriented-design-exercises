@@ -15,6 +15,8 @@ Proszę napisać program w Pascalu, który zawiera dwie procedury, jedna generuj
 
 Kod: [Link do zadania 1](./1)
 
+---
+
 **Zadanie 2** Wzorce architektury
 Symfony (PHP)
 
@@ -31,3 +33,22 @@ Należy stworzyć aplikację webową na bazie frameworka Symfony na obrazie `kpr
 ✅ 5.0 Stworzenie panelu administracyjnego [Link do commita 5.0](https://github.com/nixpl/object-oriented-design-exercises/commit/9952bb3)
 
 Kod: [Link do zadania 2](./2)
+
+---
+
+**Zadanie 3** Wzorce kreacyjne
+Spring Boot (Kotlin)
+
+Proszę stworzyć prosty serwis do autoryzacji, który zasymuluje autoryzację użytkownika za pomocą przesłanej nazwy użytkownika oraz hasła. Aplikacja zawiera jeden kontroler, jest napisana w Kotlinie i oparta na Spring Boot. Serwis do autoryzacji jest singletonem.
+
+✅ 3.0 Należy stworzyć jeden kontroler wraz z danymi wyświetlanymi z listy na endpoint'cie w formacie JSON - Kotlin + Spring Boot [Link do commita 3.0](https://github.com/nixpl/object-oriented-design-exercises/commit/ae1fffa)
+
+✅ 3.5 Należy stworzyć klasę do autoryzacji (mock) jako Singleton w formie eager [Link do commita 3.5](https://github.com/nixpl/object-oriented-design-exercises/commit/3d29d45)
+
+✅ 4.0 Należy obsłużyć dane autoryzacji przekazywane przez użytkownika [Link do commita 4.0](https://github.com/nixpl/object-oriented-design-exercises/commit/23266a8)
+
+✅ 4.5 Należy wstrzyknąć singleton do głównej klasy via @Autowired lub kontruktor (constructor injection) [Link do commita 4.5](https://github.com/nixpl/object-oriented-design-exercises/commit/210c3df)
+
+✅ 5.0 Obok wersji Eager do wyboru powinna być wersja Singletona w wersji lazy [Link do commita 5.0](https://github.com/nixpl/object-oriented-design-exercises/commit/5e6abef)
+
+Kod: [Link do zadania 3](./3)
