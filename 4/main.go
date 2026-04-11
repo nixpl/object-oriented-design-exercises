@@ -4,6 +4,7 @@ import (
 	"github.com/labstack/echo/v4"
 	"pl.uj/task4/controllers"
 	"pl.uj/task4/db"
+	"pl.uj/task4/services"
 )
 
 func main() {
@@ -11,7 +12,10 @@ func main() {
 
 	e := echo.New()
 
-	weatherCtrl := controllers.NewWeatherController()
+	realClient := &services.ExternalWeatherClient{}
+	proxy := services.NewWeatherProxy(realClient)
+
+	weatherCtrl := controllers.NewWeatherController(proxy)
 	e.GET("/weather", weatherCtrl.GetWeather)
 
 	e.Start(":8080")

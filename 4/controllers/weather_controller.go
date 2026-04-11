@@ -4,19 +4,27 @@ import (
 	"net/http"
 
 	"github.com/labstack/echo/v4"
-	"pl.uj/task4/db"
-	"pl.uj/task4/models"
+	"pl.uj/task4/services"
 )
 
-type WeatherController struct{}
+type WeatherController struct {
+	weatherProvider services.WeatherProvider
+}
 
-func NewWeatherController() *WeatherController {
-	return &WeatherController{}
+func NewWeatherController(wp services.WeatherProvider) *WeatherController {
+	return &WeatherController{weatherProvider: wp}
 }
 
 func (wc *WeatherController) GetWeather(c echo.Context) error {
-	var weathers []models.Weather
-	db.DB.Find(&weathers)
+	city := c.QueryParam("city")
+	if city == "" {
+		city = "Krakow"
+	}
 
-	return c.JSON(http.StatusOK, weathers)
+	weather, err := wc.weatherProvider.GetWeather(city)
+	if err != nil {
+		return c.JSON(http.StatusInternalServerError, map[string]string{"error": err.Error()})
+	}
+
+	return c.JSON(http.StatusOK, weather)
 }
