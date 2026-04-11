@@ -52,3 +52,22 @@ Proszę stworzyć prosty serwis do autoryzacji, który zasymuluje autoryzację u
 ✅ 5.0 Obok wersji Eager do wyboru powinna być wersja Singletona w wersji lazy [Link do commita 5.0](https://github.com/nixpl/object-oriented-design-exercises/commit/5e6abef)
 
 Kod: [Link do zadania 3](./3)
+
+---
+
+**Zadanie 4** Wzorce strukturalne
+Echo (Go)
+
+Należy stworzyć aplikację w Go na frameworku echo. Aplikacja ma mieć jeden endpoint, minimum jedną funkcję proxy, która pobiera dane np. o pogodzie z zewnętrznego API.
+
+✅ 3.0 Należy stworzyć aplikację we frameworku echo w j. Go z kontrolerem Pogodyy, która pozwala na pobieranie danych o pogodzie [Link do commita 3.0](https://github.com/nixpl/object-oriented-design-exercises/commit/628198d)
+
+✅ 3.5 Należy stworzyć model Pogoda wykorzystując gorm, a dane załadować z listy przy uruchomieniu [Link do commita 3.5](https://github.com/nixpl/object-oriented-design-exercises/commit/c78d1bf)
+
+✅ 4.0 Należy stworzyć klasę proxy, która pobierze dane z serwisu zewnętrznego podczas zapytania do naszego kontrolera [Link do commita 4.0](https://github.com/nixpl/object-oriented-design-exercises/commit/777db11)
+
+✅ 4.5 Należy zapisać pobrane dane z zewnątrz do bazy danych [Link do commita 4.5](https://github.com/nixpl/object-oriented-design-exercises/commit/183fbe8)
+
+✅ 5.0 Należy rozszerzyć endpoint na więcej niż jedną lokalizację zwracając JSONa [Link do commita 5.0](https://github.com/nixpl/object-oriented-design-exercises/commit/55e68e0)
+
+Kod: [Link do zadania 4](./4)
