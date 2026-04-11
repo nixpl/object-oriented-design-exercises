@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/labstack/echo/v4"
+	"pl.uj/task4/models"
 	"pl.uj/task4/services"
 )
 
@@ -16,15 +17,16 @@ func NewWeatherController(wp services.WeatherProvider) *WeatherController {
 }
 
 func (wc *WeatherController) GetWeather(c echo.Context) error {
-	city := c.QueryParam("city")
-	if city == "" {
-		city = "Krakow"
+	cities := c.QueryParams()["city"]
+	
+	results := []models.Weather{}
+
+	for _, city := range cities {
+		weather, err := wc.weatherProvider.GetWeather(city)
+		if err == nil {
+			results = append(results, *weather)
+		}
 	}
 
-	weather, err := wc.weatherProvider.GetWeather(city)
-	if err != nil {
-		return c.JSON(http.StatusInternalServerError, map[string]string{"error": err.Error()})
-	}
-
-	return c.JSON(http.StatusOK, weather)
+	return c.JSON(http.StatusOK, results)
 }
