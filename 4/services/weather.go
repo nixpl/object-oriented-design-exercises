@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"strconv"
 
+	"pl.uj/task4/db"
 	"pl.uj/task4/models"
 )
 
@@ -74,5 +75,25 @@ func NewWeatherProxy(realClient WeatherProvider) *WeatherProxy {
 
 func (p *WeatherProxy) GetWeather(city string) (*models.Weather, error) {
 	log.Printf("[PROXY] Intercepted request for city: %s", city)
-	return p.realClient.GetWeather(city)
+	
+	weather, err := p.realClient.GetWeather(city)
+	if err != nil {
+		return nil, err
+	}
+
+	var existing models.Weather
+	result := db.DB.Where("city = ?", weather.City).First(&existing)
+	
+	if result.Error == nil {
+		existing.Temperature = weather.Temperature
+		existing.Condition = weather.Condition
+		db.DB.Save(&existing)
+		log.Printf("[PROXY] Updated existing DB record for: %s", weather.City)
+		return &existing, nil
+	}
+	
+	db.DB.Create(weather)
+	log.Printf("[PROXY] Saved new DB record for: %s", weather.City)
+	
+	return weather, nil
 }
