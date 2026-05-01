@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
+import { useCart } from './CartContext';
 
 export const Products = () => {
     const [products, setProducts] = useState<any[]>([]);
+    const { addToCart } = useCart();
 
     useEffect(() => {
         fetch('http://localhost:3001/products')
@@ -11,11 +13,16 @@ export const Products = () => {
     }, []);
 
     return (
-        <div>
+        <div style={{ maxWidth: '600px' }}>
             <h2>Lista Produktów</h2>
-            <ul>
+            <ul style={{ listStyleType: 'none', padding: 0 }}>
                 {products.map(p => (
-                    <li key={p.id}>{p.name} - {p.price} PLN</li>
+                    <li key={p.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #eee', padding: '15px 0' }}>
+                        <span style={{ fontSize: '1.1em' }}>{p.name} - <strong>{p.price} PLN</strong></span>
+                        <button onClick={() => addToCart(p)} style={{ padding: '8px 12px', cursor: 'pointer', backgroundColor: '#007BFF', color: 'white', border: 'none', borderRadius: '4px', fontWeight: 'bold' }}>
+                            Dodaj do koszyka
+                        </button>
+                    </li>
                 ))}
             </ul>
         </div>
