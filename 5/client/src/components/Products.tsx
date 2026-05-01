@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 import { useCart } from './CartContext';
 
 export const Products = () => {
@@ -6,9 +7,8 @@ export const Products = () => {
     const { addToCart } = useCart();
 
     useEffect(() => {
-        fetch('http://localhost:3001/products')
-            .then(res => res.json())
-            .then(data => setProducts(data))
+        axios.get('http://localhost:3001/products')
+            .then(res => setProducts(res.data))
             .catch(err => console.error(err));
     }, []);
 

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import axios from 'axios';
 import { useCart } from './CartContext';
 
 export const Payments = () => {
@@ -8,14 +9,9 @@ export const Payments = () => {
     const handlePayment = () => {
         if (totalAmount === 0) return;
 
-        fetch('http://localhost:3001/payments', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ amount: totalAmount })
-        })
-        .then(res => res.json())
-        .then(data => {
-            setStatus(data.message);
+        axios.post('http://localhost:3001/payments', { amount: totalAmount })
+        .then(res => {
+            setStatus(res.data.message);
             clearCart();
         })
         .catch(err => console.error(err));

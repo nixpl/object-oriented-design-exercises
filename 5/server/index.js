@@ -1,13 +1,9 @@
 import express from 'express';
+import cors from 'cors';
 
 const app = express();
 app.use(express.json());
-
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Content-Type");
-    next();
-});
+app.use(cors());
 
 const products = [
     { id: 1, name: "Smartwatch", price: 600 },
@@ -20,7 +16,6 @@ app.get('/products', (req, res) => {
 });
 
 app.post('/payments', (req, res) => {
-    console.log("Platnosc dotarla:", req.body);
     res.json({ status: "success", message: "Platnosc przebiegla pomyslnie" });
 });
 
