@@ -71,3 +71,20 @@ Należy stworzyć aplikację w Go na frameworku echo. Aplikacja ma mieć jeden e
 ✅ 5.0 Należy rozszerzyć endpoint na więcej niż jedną lokalizację zwracając JSONa [Link do commita 5.0](https://github.com/nixpl/object-oriented-design-exercises/commit/55e68e0)
 
 Kod: [Link do zadania 4](./4)
+
+---
+
+**Zadanie 5** Wzorce behawioralne
+React (JavaScript/Typescript)
+
+✅ 3.0 W ramach projektu należy stworzyć komponenty Produkty oraz Płatności; komponent Produkty powinien pobierać listę produktów z aplikacji serwerowej, natomiast komponent Płatności powinien wysyłać dane płatności do aplikacji serwerowej. [Link do commita 3.0](https://github.com/nixpl/object-oriented-design-exercises/commit/63101cf)
+
+✅ 3.5 Należy dodać komponent Koszyk wraz z osobnym widokiem; aplikacja powinna umożliwiać przechodzenie pomiędzy widokami przy użyciu routingu. [Link do commita 3.5](https://github.com/nixpl/object-oriented-design-exercises/commit/286e693)
+
+✅ 4.0 Dane pomiędzy komponentami, takimi jak Produkty, Koszyk i Płatności, powinny być przekazywane z wykorzystaniem React hooks, np. useState, useEffect lub useContext. [Link do commita 4.0](https://github.com/nixpl/object-oriented-design-exercises/commit/49468bd)
+
+✅ 4.5 Należy przygotować konfigurację umożliwiającą uruchomienie aplikacji klienckiej oraz serwerowej w kontenerach Docker za pomocą docker-compose. [Link do commita 4.5](https://github.com/nixpl/object-oriented-design-exercises/commit/0eef36a)
+
+✅ 5.0 Należy wykorzystać bibliotekę axios do komunikacji z serwerem oraz skonfigurować obsługę CORS, aby frontend mógł poprawnie komunikować się z backendem. [Link do commita 5.0](https://github.com/nixpl/object-oriented-design-exercises/commit/83aa343)
+
+Kod: [Link do zadania 5](./5)
