@@ -88,3 +88,20 @@ React (JavaScript/Typescript)
 ✅ 5.0 Należy wykorzystać bibliotekę axios do komunikacji z serwerem oraz skonfigurować obsługę CORS, aby frontend mógł poprawnie komunikować się z backendem. [Link do commita 5.0](https://github.com/nixpl/object-oriented-design-exercises/commit/83aa343)
 
 Kod: [Link do zadania 5](./5)
+
+---
+
+**Zadanie 8** Zapaszki
+
+Należy sprawdzić kod projektów JS 3.0, 3.5, 4.0,  kotlin, go, js -
+4.5, 5.0.
+
+✅ 3.0 Należy skonfigurować husky + lint-staged uruchamianie lintowania przed commitem [Link do commita 3.0](https://github.com/nixpl/object-oriented-design-exercises/commit/2f156d8)
+
+✅ 3.5 Należy wyeliminować wszystkie bugi w kodzie w Sonarze (kod aplikacji klienckiej) [Link do commita 3.5](https://github.com/nixpl/object-oriented-design-exercises/commit/6109f36)
+
+❌ 4.0 Przeskanować oraz naprawić dowolny projekt open source narzędziem CodeQL
+
+✅ 4.5 Należy usunąć problemy typu Code Smell w kodzie w Sonarze (kotlin, go, js). Należy dodać badge z Sonara [Link do commita 4.5](https://github.com/nixpl/object-oriented-design-exercises/commit/1054235)
+
+✅ 5.0 Skonfigurować Github Actions z linterem oraz CodeQL [Link do commita 5.0](https://github.com/nixpl/object-oriented-design-exercises/commit/48517b5)
