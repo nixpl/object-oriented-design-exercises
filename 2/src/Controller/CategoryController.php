@@ -11,6 +11,9 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/api/categories')]
 class CategoryController extends AbstractController
 {
+    private const ROUTE_ID = '/{id}';
+    private const NOT_FOUND_MSG = 'Not found';
+    
     #[Route('', methods: ['GET'])]
     public function index(EntityManagerInterface $em): JsonResponse
     {
@@ -19,10 +22,12 @@ class CategoryController extends AbstractController
         return $this->json($data);
     }
 
-    #[Route('/{id}', methods: ['GET'])]
+    #[Route(self::ROUTE_ID, methods: ['GET'])]
     public function show(Category $category = null): JsonResponse
     {
-        if (!$category) return $this->json(['message' => 'Not found'], 404);
+        if (!$category) {
+            return $this->json(['message' => self::NOT_FOUND_MSG], 404);
+        }
         return $this->json(['id' => $category->getId(), 'name' => $category->getName()]);
     }
 
@@ -39,21 +44,27 @@ class CategoryController extends AbstractController
         return $this->json(['message' => 'Created', 'id' => $category->getId()], 201);
     }
 
-    #[Route('/{id}', methods: ['PUT'])]
-    public function update(Request $request, Category $category = null, EntityManagerInterface $em): JsonResponse
+    #[Route(self::ROUTE_ID, methods: ['PUT'])]
+    public function update(Request $request, EntityManagerInterface $em, Category $category = null): JsonResponse
     {
-        if (!$category) return $this->json(['message' => 'Not found'], 404);
+        if (!$category) {
+            return $this->json(['message' => self::NOT_FOUND_MSG], 404);
+        }
         $data = json_decode($request->getContent(), true);
-        if (isset($data['name'])) $category->setName($data['name']);
+        if (isset($data['name'])) {
+            $category->setName($data['name']);
+        }
         
         $em->flush();
         return $this->json(['message' => 'Updated']);
     }
 
-    #[Route('/{id}', methods: ['DELETE'])]
-    public function delete(Category $category = null, EntityManagerInterface $em): JsonResponse
+    #[Route(self::ROUTE_ID, methods: ['DELETE'])]
+    public function delete(EntityManagerInterface $em, Category $category = null): JsonResponse
     {
-        if (!$category) return $this->json(['message' => 'Not found'], 404);
+        if (!$category) {
+            return $this->json(['message' => self::NOT_FOUND_MSG], 404);
+        }
         $em->remove($category);
         $em->flush();
         return $this->json(['message' => 'Deleted']);

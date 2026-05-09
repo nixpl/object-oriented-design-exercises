@@ -8,6 +8,8 @@ class Task3ApplicationTests {
 
 	@Test
 	fun contextLoads() {
+		// This test is intentionally left empty.
+        // It simply verifies that the Spring application context loads successfully.
 	}
 
 }
