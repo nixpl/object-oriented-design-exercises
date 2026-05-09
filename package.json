@@ -1,0 +1,25 @@
+{
+  "name": "object-oriented-design-exercises",
+  "version": "1.0.0",
+  "description": "**Zadanie 1** Paradygmaty Sortowanie bąbelkowe",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nixpl/object-oriented-design-exercises.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nixpl/object-oriented-design-exercises/issues"
+  },
+  "homepage": "https://github.com/nixpl/object-oriented-design-exercises#readme",
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.3"
+  }
+}

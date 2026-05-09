@@ -1,0 +1,5 @@
+{
+  "5/client/src/**/*.{js,jsx,ts,tsx}": [
+    "cd 5/client && npx eslint --fix"
+  ]
+}
