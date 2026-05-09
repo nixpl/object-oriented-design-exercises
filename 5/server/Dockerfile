@@ -3,8 +3,7 @@ FROM node:22-slim
 WORKDIR /usr/src/app
 
 COPY package.json ./
-RUN npm install
-RUN npm install cors
+RUN npm install && npm install cors
 
 COPY . .
 
