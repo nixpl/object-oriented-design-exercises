@@ -11,7 +11,11 @@ public func configure(_ app: Application) throws {
     app.migrations.add(CreateReview())
     app.views.use(.leaf)
     
-    app.redis.configuration = try RedisConfiguration(hostname: "vapor_redis")
+    if let redisURL = Environment.get("REDIS_URL") {
+        app.redis.configuration = try RedisConfiguration(url: redisURL)
+    } else {
+        app.redis.configuration = try RedisConfiguration(hostname: "vapor_redis")
+    }
     
     try routes(app)
 }
