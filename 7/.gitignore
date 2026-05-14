@@ -1,0 +1,6 @@
+.build/
+.swiftpm/
+db.sqlite
+*.db
+.DS_Store
+node_modules/
