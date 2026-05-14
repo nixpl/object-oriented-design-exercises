@@ -90,6 +90,23 @@ React (JavaScript/Typescript)
 Kod: [Link do zadania 5](./5)
 
 ---
+**Zadanie 7** Swift / Vapor
+
+Proszę napisać prostą aplikację w Vaporze, wykorzystując Leaf jako silnik szablonów oraz Fluent jako ORM. Należy stworzyć modele oraz CRUD, wykorzystać Redis do przechowywania danych.
+
+✅ 3.0 Należy stworzyć kontroler oraz model Produktów zgodny z CRUD w ORM Fluent [Link do commita 3.0](https://github.com/nixpl/object-oriented-design-exercises/commit/783612a)
+
+✅ 3.5 Należy stworzyć szablony w Leaf [Link do commita 3.5](https://github.com/nixpl/object-oriented-design-exercises/commit/9b0a101)
+
+✅ 4.0 Należy stworzyć drugi model oraz kontroler Kategorii wraz z relacją [Link do commita 4.0](https://github.com/nixpl/object-oriented-design-exercises/commit/4df14cf)
+
+✅ 4.5 Należy wykorzystać Redis do przechowywania danych [Link do commita 4.5](https://github.com/nixpl/object-oriented-design-exercises/commit/60dc8f8)
+
+❌ 5.0 Wrzucić aplikację na heroku
+
+Kod: [Link do zadania 7](./7)
+
+---
 
 **Zadanie 8** Zapaszki
 
