@@ -1,5 +1,6 @@
 import Fluent
 import Vapor
+import Redis
 
 struct ProductFormData: Content {
     let name: String
@@ -11,6 +12,7 @@ struct ProductContext: Encodable {
     let products: [Product]
     let categories: [Category]
     let editId: UUID?
+    let lastAdded: String
 }
 
 struct ProductController: RouteCollection {
@@ -34,6 +36,7 @@ struct ProductController: RouteCollection {
         let data = try req.content.decode(ProductFormData.self)
         let product = Product(name: data.name, price: data.price, categoryID: data.category_id)
         try await product.save(on: req.db)
+        try await req.redis.set("last_added_product", to: data.name).get()
         return product
     }
 
@@ -41,13 +44,15 @@ struct ProductController: RouteCollection {
         let products = try await Product.query(on: req.db).with(\.$category).all()
         let categories = try await Category.query(on: req.db).all()
         let editId = try? req.query.get(UUID.self, at: "edit")
-        return try await req.view.render("products", ProductContext(products: products, categories: categories, editId: editId))
+        let lastAdded = try await req.redis.get("last_added_product", as: String.self).get() ?? "None"
+        return try await req.view.render("products", ProductContext(products: products, categories: categories, editId: editId, lastAdded: lastAdded))
     }
 
     func createFromForm(req: Request) async throws -> Response {
         let data = try req.content.decode(ProductFormData.self)
         let product = Product(name: data.name, price: data.price, categoryID: data.category_id)
         try await product.save(on: req.db)
+        try await req.redis.set("last_added_product", to: data.name).get()
         return req.redirect(to: "/products/view")
     }
 

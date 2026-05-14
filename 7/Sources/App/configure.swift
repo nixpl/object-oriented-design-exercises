@@ -1,6 +1,7 @@
 import Fluent
 import FluentSQLiteDriver
 import Leaf
+import Redis
 import Vapor
 
 public func configure(_ app: Application) throws {
@@ -9,5 +10,8 @@ public func configure(_ app: Application) throws {
     app.migrations.add(CreateProduct())
     app.migrations.add(CreateReview())
     app.views.use(.leaf)
+    
+    app.redis.configuration = try RedisConfiguration(hostname: "vapor_redis")
+    
     try routes(app)
 }
