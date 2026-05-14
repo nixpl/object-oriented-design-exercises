@@ -13,10 +13,17 @@ final class Product: Model, Content {
     @Field(key: "price")
     var price: Double
 
+    @Parent(key: "category_id")
+    var category: Category
+
+    @Children(for: \.$product)
+    var reviews: [Review]
+
     init() { }
-    init(id: UUID? = nil, name: String, price: Double) {
+    init(id: UUID? = nil, name: String, price: Double, categoryID: UUID) {
         self.id = id
         self.name = name
         self.price = price
+        self.$category.id = categoryID
     }
 }

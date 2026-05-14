@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reviews</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5">
+    <nav class="nav nav-pills mb-4">
+        <a class="nav-link" href="/products/view">Products</a>
+        <a class="nav-link" href="/categories/view">Categories</a>
+        <a class="nav-link active" href="/reviews/view">Reviews</a>
+    </nav>
+
+    <h2>Reviews Management</h2>
+    
+    <div class="card mb-4 mt-4">
+        <div class="card-body">
+            <h5 class="card-title">Add Review</h5>
+            <form action="/reviews/view" method="POST" class="row g-3 mt-2">
+                <div class="col-auto">
+                    <input type="text" name="text" class="form-control" placeholder="Review text" required>
+                </div>
+                <div class="col-auto">
+                    <select name="rating" class="form-select" required>
+                        <option value="" disabled selected>Rating...</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="col-auto">
+                    <select name="product_id" class="form-select" required>
+                        <option value="" disabled selected>Select Product...</option>
+                        #for(product in products):
+                            <option value="#(product.id)">#(product.name)</option>
+                        #endfor
+                    </select>
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <table class="table table-bordered" style="table-layout: fixed;">
+        <thead class="table-light">
+            <tr>
+                <th style="width: 30%;">Text</th>
+                <th style="width: 20%;">Rating</th>
+                <th style="width: 25%;">Product</th>
+                <th style="width: 25%;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            #for(review in reviews):
+                #if(review.id == editId):
+                    <tr class="table-warning">
+                        <td class="align-middle">
+                            <input type="text" name="text" value="#(review.text)" class="form-control form-control-sm" form="edit-form-#(review.id)" required>
+                        </td>
+                        <td class="align-middle">
+                            <select name="rating" class="form-select form-select-sm" form="edit-form-#(review.id)" required>
+                                <option value="1" #if(review.rating == 1): selected #endif>1</option>
+                                <option value="2" #if(review.rating == 2): selected #endif>2</option>
+                                <option value="3" #if(review.rating == 3): selected #endif>3</option>
+                                <option value="4" #if(review.rating == 4): selected #endif>4</option>
+                                <option value="5" #if(review.rating == 5): selected #endif>5</option>
+                            </select>
+                        </td>
+                        <td class="align-middle">
+                            <select name="product_id" class="form-select form-select-sm" form="edit-form-#(review.id)" required>
+                                #for(product in products):
+                                    <option value="#(product.id)" #if(product.id == review.product.id): selected #endif>#(product.name)</option>
+                                #endfor
+                            </select>
+                        </td>
+                        <td class="align-middle">
+                            <form id="edit-form-#(review.id)" action="/reviews/view/#(review.id)/edit" method="POST" class="d-flex gap-2 mb-0">
+                                <button type="submit" class="btn btn-sm btn-success">Save</button>
+                                <a href="/reviews/view" class="btn btn-sm btn-secondary">Cancel</a>
+                            </form>
+                        </td>
+                    </tr>
+                #else:
+                    <tr>
+                        <td class="align-middle text-truncate">#(review.text)</td>
+                        <td class="align-middle text-truncate">#(review.rating) / 5</td>
+                        <td class="align-middle text-truncate">#(review.product.name)</td>
+                        <td class="align-middle">
+                            <div class="d-flex gap-2">
+                                <a href="/reviews/view?edit=#(review.id)" class="btn btn-sm btn-warning">Edit</a>
+                                <form action="/reviews/view/#(review.id)/delete" method="POST" class="mb-0">
+                                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                #endif
+            #endfor
+        </tbody>
+    </table>
+</body>
+</html>
