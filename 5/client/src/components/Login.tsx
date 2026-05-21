@@ -1,0 +1,38 @@
+import React, { useState } from 'react';
+import axios from 'axios';
+import { useNavigate, Link } from 'react-router-dom';
+
+const Login: React.FC = () => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [errorMsg, setErrorMsg] = useState('');
+    const navigate = useNavigate();
+
+    const handleLogin = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setErrorMsg('');
+        try {
+            const res = await axios.post('http://localhost:3001/api/login', { username, password });
+            localStorage.setItem('authToken', res.data.token);
+            navigate('/'); 
+            window.location.reload();
+        } catch (error: any) {
+            setErrorMsg('Nieprawidłowe dane logowania');
+        }
+    };
+
+    return (
+        <div style={{ padding: '20px' }}>
+            <h2>Logowanie</h2>
+            {errorMsg && <div id="login-error" style={{ color: 'red' }}>{errorMsg}</div>}
+            <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', width: '300px', gap: '10px' }}>
+                <input id="login-username" type="text" placeholder="Nazwa użytkownika" value={username} onChange={e => setUsername(e.target.value)} required />
+                <input id="login-password" type="password" placeholder="Hasło" value={password} onChange={e => setPassword(e.target.value)} required />
+                <button id="login-submit" type="submit">Zaloguj</button>
+            </form>
+            <p>Nie masz konta? <Link to="/register">Zarejestruj się</Link></p>
+        </div>
+    );
+};
+
+export default Login;
