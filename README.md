@@ -108,7 +108,7 @@ Kod: [Link do zadania 7](./7)
 
 ---
 
-**Zadanie 8** Zapaszki
+**Zadanie 6** Zapaszki
 
 Należy sprawdzić kod projektów JS 3.0, 3.5, 4.0,  kotlin, go, js -
 4.5, 5.0.
