@@ -90,6 +90,25 @@ React (JavaScript/Typescript)
 Kod: [Link do zadania 5](./5)
 
 ---
+
+**Zadanie 6** Zapaszki
+
+Należy sprawdzić kod projektów JS 3.0, 3.5, 4.0,  kotlin, go, js -
+4.5, 5.0.
+
+✅ 3.0 Należy skonfigurować husky + lint-staged uruchamianie lintowania przed commitem [Link do commita 3.0](https://github.com/nixpl/object-oriented-design-exercises/commit/2f156d8)
+
+✅ 3.5 Należy wyeliminować wszystkie bugi w kodzie w Sonarze (kod aplikacji klienckiej) [Link do commita 3.5](https://github.com/nixpl/object-oriented-design-exercises/commit/6109f36)
+
+❌ 4.0 Przeskanować oraz naprawić dowolny projekt open source narzędziem CodeQL
+
+✅ 4.5 Należy usunąć problemy typu Code Smell w kodzie w Sonarze (kotlin, go, js). Należy dodać badge z Sonara [Link do commita 4.5](https://github.com/nixpl/object-oriented-design-exercises/commit/1054235)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=nixpl_object-oriented-design-exercises&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=nixpl_object-oriented-design-exercises)
+
+✅ 5.0 Skonfigurować Github Actions z linterem oraz CodeQL [Link do commita 5.0](https://github.com/nixpl/object-oriented-design-exercises/commit/48517b5)
+
+---
+
 **Zadanie 7** Swift / Vapor
 
 Proszę napisać prostą aplikację w Vaporze, wykorzystując Leaf jako silnik szablonów oraz Fluent jako ORM. Należy stworzyć modele oraz CRUD, wykorzystać Redis do przechowywania danych.
@@ -105,20 +124,3 @@ Proszę napisać prostą aplikację w Vaporze, wykorzystując Leaf jako silnik s
 ❌ 5.0 Wrzucić aplikację na heroku
 
 Kod: [Link do zadania 7](./7)
-
----
-
-**Zadanie 6** Zapaszki
-
-Należy sprawdzić kod projektów JS 3.0, 3.5, 4.0,  kotlin, go, js -
-4.5, 5.0.
-
-✅ 3.0 Należy skonfigurować husky + lint-staged uruchamianie lintowania przed commitem [Link do commita 3.0](https://github.com/nixpl/object-oriented-design-exercises/commit/2f156d8)
-
-✅ 3.5 Należy wyeliminować wszystkie bugi w kodzie w Sonarze (kod aplikacji klienckiej) [Link do commita 3.5](https://github.com/nixpl/object-oriented-design-exercises/commit/6109f36)
-
-❌ 4.0 Przeskanować oraz naprawić dowolny projekt open source narzędziem CodeQL
-
-✅ 4.5 Należy usunąć problemy typu Code Smell w kodzie w Sonarze (kotlin, go, js). Należy dodać badge z Sonara [Link do commita 4.5](https://github.com/nixpl/object-oriented-design-exercises/commit/1054235)
-
-✅ 5.0 Skonfigurować Github Actions z linterem oraz CodeQL [Link do commita 5.0](https://github.com/nixpl/object-oriented-design-exercises/commit/48517b5)
