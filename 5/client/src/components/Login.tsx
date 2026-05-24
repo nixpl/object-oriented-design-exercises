@@ -13,9 +13,10 @@ const Login: React.FC = () => {
         setErrorMsg('');
         try {
             const res = await axios.post('http://localhost:3001/api/login', { username, password });
-            localStorage.setItem('authToken', res.data.token);
+            const sanitizedToken = String(res.data.token).replace(/[<>&"']/g, "");
+            globalThis.localStorage.setItem('authToken', sanitizedToken);
             navigate('/'); 
-            window.location.reload();
+            globalThis.location.reload();
         } catch (error: any) {
             setErrorMsg('Nieprawidłowe dane logowania');
         }
