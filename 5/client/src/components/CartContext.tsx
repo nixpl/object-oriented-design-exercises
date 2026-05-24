@@ -18,17 +18,17 @@ export const CartContext = createContext<CartContextType | undefined>(undefined)
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cartItems, setCartItems] = useState<Product[]>(() => {
-    const saved = localStorage.getItem('cartItems');
+    const saved = globalThis.localStorage.getItem('cartItems');
     return saved ? JSON.parse(saved) : [];
   });
 
   useEffect(() => {
     const sanitizedCartItems = cartItems.map(item => ({
       id: Number(item.id),
-      name: String(item.name),
+      name: String(item.name).replace(/[<>&"']/g, ""),
       price: Number(item.price)
     }));
-    localStorage.setItem('cartItems', JSON.stringify(sanitizedCartItems));
+    globalThis.localStorage.setItem('cartItems', JSON.stringify(sanitizedCartItems));
   }, [cartItems]);
 
   useEffect(() => {
@@ -40,8 +40,8 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
       }
     };
 
-    window.addEventListener('storage', handleStorageChange);
-    return () => window.removeEventListener('storage', handleStorageChange);
+    globalThis.addEventListener('storage', handleStorageChange);
+    return () => globalThis.removeEventListener('storage', handleStorageChange);
   }, []);
 
   const addToCart = (product: Product) => {
