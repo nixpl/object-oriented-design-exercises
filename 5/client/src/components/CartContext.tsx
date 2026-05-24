@@ -23,7 +23,12 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   });
 
   useEffect(() => {
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    const sanitizedCartItems = cartItems.map(item => ({
+      id: Number(item.id),
+      name: String(item.name),
+      price: Number(item.price)
+    }));
+    localStorage.setItem('cartItems', JSON.stringify(sanitizedCartItems));
   }, [cartItems]);
 
   useEffect(() => {
