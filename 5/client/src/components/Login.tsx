@@ -12,7 +12,8 @@ const Login: React.FC = () => {
         e.preventDefault();
         setErrorMsg('');
         try {
-            const res = await axios.post('https://app-server-michalkobylski-bag5bdezbggxcsac.swedencentral-01.azurewebsites.net/api/login', { username, password });
+            const apiUrl = import.meta.env.VITE_API_URL || 'https://app-server-michalkobylski-bag5bdezbggxcsac.swedencentral-01.azurewebsites.net';
+            const res = await axios.post(`${apiUrl}/api/login`, { username, password });
             const sanitizedToken = String(res.data.token).replace(/[<>&"']/g, "");
             globalThis.localStorage.setItem('authToken', sanitizedToken);
             navigate('/'); 

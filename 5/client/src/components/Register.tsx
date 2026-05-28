@@ -19,7 +19,8 @@ const Register: React.FC = () => {
         }
 
         try {
-            await axios.post('https://app-server-michalkobylski-bag5bdezbggxcsac.swedencentral-01.azurewebsites.net/api/register', { username, email, password });
+            const apiUrl = import.meta.env.VITE_API_URL || 'https://app-server-michalkobylski-bag5bdezbggxcsac.swedencentral-01.azurewebsites.net';
+            await axios.post(`${apiUrl}/api/register`, { username, email, password });
             alert('Rejestracja udana!');
             navigate('/login');
         } catch (error: any) {

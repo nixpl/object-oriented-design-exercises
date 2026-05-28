@@ -9,7 +9,8 @@ export const Payments = () => {
     const handlePayment = () => {
         if (totalAmount === 0) return;
 
-        axios.post('https://app-server-michalkobylski-bag5bdezbggxcsac.swedencentral-01.azurewebsites.net/payments', { amount: totalAmount })
+        const apiUrl = import.meta.env.VITE_API_URL || 'https://app-server-michalkobylski-bag5bdezbggxcsac.swedencentral-01.azurewebsites.net';
+        axios.post(`${apiUrl}/payments`, { amount: totalAmount })
         .then(res => {
             setStatus(res.data.message);
             clearCart();

@@ -7,7 +7,8 @@ export const Products = () => {
     const { addToCart } = useCart();
 
     useEffect(() => {
-        axios.get('https://app-server-michalkobylski-bag5bdezbggxcsac.swedencentral-01.azurewebsites.net/products')
+        const apiUrl = import.meta.env.VITE_API_URL || 'https://app-server-michalkobylski-bag5bdezbggxcsac.swedencentral-01.azurewebsites.net';
+        axios.get(`${apiUrl}/products`)
             .then(res => setProducts(res.data))
             .catch(err => console.error(err));
     }, []);
