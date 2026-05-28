@@ -27,3 +27,16 @@ jobs:
       run: |
         docker build -t ${{ secrets.ACR_NAME }}.azurecr.io/server:latest -f 5/server/Dockerfile 5/server
         docker push ${{ secrets.ACR_NAME }}.azurecr.io/server:latest
+
+    - name: Send mail on success
+      if: success()
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: smtp.gmail.com
+        server_port: 465
+        username: ${{ secrets.MAIL_USERNAME }}
+        password: ${{ secrets.MAIL_PASSWORD }}
+        subject: "Build Successful"
+        to: ${{ secrets.MAIL_USERNAME }}
+        from: GitHub Actions
+        body: "The application was successfully built and pushed to ACR."
