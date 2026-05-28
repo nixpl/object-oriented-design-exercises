@@ -142,3 +142,21 @@ Wykorzystaj do tego zadania Selenium/Webdrivera (Kotlin, Python, Java, JS, Go, S
 ❌ 5.0 Stwórz scenariusz End-to-End w Playwright (minimum 50 asercji)
 
 Kod: [Link do zadania 8](./8)
+
+---
+
+**Zadanie 9** CI/CD & Cloud (Azure)
+
+Wdrożenie aplikacji React (klient) oraz Node.js (serwer) z zadania 5 na chmurę przy pomocy Docker oraz GitHub Actions.
+
+✅ 3.0 Należy stworzyć odpowiednie instancje po stronie chmury na dockerze [Link do commita 3.0](https://github.com/nixpl/object-oriented-design-exercises/commit/7d73c35)
+
+✅ 3.5 Stworzyć odpowiedni pipeline w Github Actions do budowania aplikacji [Link do commita 3.5](https://github.com/nixpl/object-oriented-design-exercises/commit/ac0b243)
+
+✅ 4.0 Dodać notyfikację mailową o zbudowaniu aplikacji [Link do commita 4.0](https://github.com/nixpl/object-oriented-design-exercises/commit/6f2f7c5)
+
+✅ 4.5 Dodać krok z deploymentem aplikacji serwerowej oraz klienckiej na chmurę [Link do commita 4.5](https://github.com/nixpl/object-oriented-design-exercises/commit/a29a1f1)
+
+✅ 5.0 Dodać uruchomienie regresyjnych testów automatycznych (funkcjonalnych) jako krok w Actions [Link do commita 5.0](https://github.com/nixpl/object-oriented-design-exercises/commit/4e1b833)
+
+Strona: [https://app-client-michalkobylski-bsaxazbthnd6b6a9.swedencentral-01.azurewebsites.net](https://app-client-michalkobylski-bsaxazbthnd6b6a9.swedencentral-01.azurewebsites.net)
