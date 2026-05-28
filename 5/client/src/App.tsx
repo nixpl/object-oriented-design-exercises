@@ -11,7 +11,7 @@ function App() {
 
     const handleLogout = () => {
         localStorage.removeItem('authToken');
-        window.location.reload();
+        globalThis.location.reload();
     };
 
     return (
