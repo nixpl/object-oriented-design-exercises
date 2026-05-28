@@ -102,7 +102,7 @@ Należy sprawdzić kod projektów JS 3.0, 3.5, 4.0,  kotlin, go, js -
 
 ❌ 4.0 Przeskanować oraz naprawić dowolny projekt open source narzędziem CodeQL
 
-✅ 4.5 Należy usunąć problemy typu Code Smell w kodzie w Sonarze (kotlin, go, js). Należy dodać badge z Sonara [Link do commita 4.5](https://github.com/nixpl/object-oriented-design-exercises/commit/1054235)
+❌ 4.5 Należy usunąć problemy typu Code Smell w kodzie w Sonarze (kotlin, go, js). Należy dodać badge z Sonara [Link do commita 4.5](https://github.com/nixpl/object-oriented-design-exercises/commit/1054235)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=nixpl_object-oriented-design-exercises&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=nixpl_object-oriented-design-exercises)
 
 ✅ 5.0 Skonfigurować Github Actions z linterem oraz CodeQL [Link do commita 5.0](https://github.com/nixpl/object-oriented-design-exercises/commit/48517b5)
