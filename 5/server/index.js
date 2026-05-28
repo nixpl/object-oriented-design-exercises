@@ -19,8 +19,9 @@ app.post('/payments', (req, res) => {
     res.json({ status: "success", message: "Platnosc przebiegla pomyslnie" });
 });
 
-app.listen(3001, '0.0.0.0', () => {
-    console.log("Serwer dziala na http://0.0.0.0:3001");
+const port = process.env.PORT || 3001;
+app.listen(port, '0.0.0.0', () => {
+    console.log(`Server is running on http://0.0.0.0:${port}`);
 });
 
 const users = [];

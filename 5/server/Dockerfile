@@ -2,10 +2,12 @@ FROM node:22-slim
 
 WORKDIR /usr/src/app
 
-COPY package.json ./
-RUN npm install && npm install cors
+COPY package*.json ./
+RUN npm install
 
 COPY . .
 
-EXPOSE 3001
+ENV PORT=8080
+EXPOSE 8080
+
 CMD ["node", "index.js"]
