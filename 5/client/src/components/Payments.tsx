@@ -9,7 +9,7 @@ export const Payments = () => {
     const handlePayment = () => {
         if (totalAmount === 0) return;
 
-        axios.post('http://localhost:3001/payments', { amount: totalAmount })
+        axios.post('https://app-server-michalkobylski-bag5bdezbggxcsac.swedencentral-01.azurewebsites.net/payments', { amount: totalAmount })
         .then(res => {
             setStatus(res.data.message);
             clearCart();

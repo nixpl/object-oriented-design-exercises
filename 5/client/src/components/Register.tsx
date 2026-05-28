@@ -19,7 +19,7 @@ const Register: React.FC = () => {
         }
 
         try {
-            await axios.post('http://localhost:3001/api/register', { username, email, password });
+            await axios.post('https://app-server-michalkobylski-bag5bdezbggxcsac.swedencentral-01.azurewebsites.net/api/register', { username, email, password });
             alert('Rejestracja udana!');
             navigate('/login');
         } catch (error: any) {

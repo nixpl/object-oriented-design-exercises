@@ -7,7 +7,7 @@ export const Products = () => {
     const { addToCart } = useCart();
 
     useEffect(() => {
-        axios.get('http://localhost:3001/products')
+        axios.get('https://app-server-michalkobylski-bag5bdezbggxcsac.swedencentral-01.azurewebsites.net/products')
             .then(res => setProducts(res.data))
             .catch(err => console.error(err));
     }, []);

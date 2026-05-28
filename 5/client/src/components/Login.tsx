@@ -12,7 +12,7 @@ const Login: React.FC = () => {
         e.preventDefault();
         setErrorMsg('');
         try {
-            const res = await axios.post('http://localhost:3001/api/login', { username, password });
+            const res = await axios.post('https://app-server-michalkobylski-bag5bdezbggxcsac.swedencentral-01.azurewebsites.net/api/login', { username, password });
             const sanitizedToken = String(res.data.token).replace(/[<>&"']/g, "");
             globalThis.localStorage.setItem('authToken', sanitizedToken);
             navigate('/'); 
